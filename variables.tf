@@ -16,9 +16,12 @@ variable "common_resource_groups" {
   }))
   nullable = false
   default = {
-    common = { enabled = true, labs = "2-11" } # zasoby wspólne, trwałe
-
-    # TODO: Dodaj pozostałe grupy zasobów (krok 1)
+    common     = { enabled = true, labs = "2-11" } # generuje nazwę: rg-common-26
+    basic      = { enabled = true, labs = "1-4" }  # generuje nazwę: rg-labs-basic-26
+    function   = { enabled = true, labs = "5-6" }  # generuje nazwę: rg-labs-function-26
+    vm         = { enabled = true, labs = "7-9" }  # generuje nazwę: rg-labs-vm-26
+    advanced   = { enabled = true, labs = "10" }   # generuje nazwę: rg-labs-advanced-26
+    industry40 = { enabled = true, labs = "11" }  # generuje nazwę: rg-labs-industry40-26
   }
   validation {
     condition     = try(var.common_resource_groups["common"].enabled, false)
@@ -38,7 +41,7 @@ variable "location" {
   EOT
   nullable    = false
   type        = string
-  default     = "francecentral"
+  default     = "polandcentral"
 }
 
 variable "sops-encryption-key_name" {
