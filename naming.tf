@@ -62,6 +62,7 @@ locals {
     vnet    = "vnet-common-${local.yy}"
     cr      = "crcommon${local.yy}${local.sid}"
     id_pull = "id-acrpull-${local.yy}"
+    image_base = "img-lab007-base"
     gallery = "gal_labs_${local.yy}" # snake_case: galeria nie dopuszcza '-'
     log     = "log-common-${local.yy}"
   }
